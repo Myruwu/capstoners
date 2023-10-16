@@ -1,0 +1,27 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to top, rgba(33, 36, 71, 0.6) 0 100%),url(../../assets//background/login.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 8px;
+}
+
+.card {
+  width: 100%;
+  max-width: 350px;
+  height: fit-content;
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.login-title {
+  font-size: 45px;
+}
+
+.login-subtitle {
+  font-size: 18px;
+}

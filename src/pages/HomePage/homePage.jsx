@@ -1,0 +1,40 @@
+import "./homePageStyle.css";
+import { createElement, useState } from "react";
+import { Route, Routes } from 'react-router-dom';
+import { HomeRoutes } from "../../routes/homeRoutes";
+import { SideBarRoutes } from "../../routes/sideBarRoutes";
+import SideBar from "../../components/SideBar/sideBar";
+import ProtectedRoutes from "../../auth/protectedRoutes";
+
+
+const HomePage = () => {
+  const [sideBarOpen, setSideBarOpen] = useState(true);
+
+  const handleSideBar = () => {
+    sideBarOpen ? setSideBarOpen(false) : setSideBarOpen(true)
+  }
+  return (
+    <ProtectedRoutes>
+      <section>
+        <SideBar navigation={SideBarRoutes} status={sideBarOpen ? "open" : "close"} handleSideBar={handleSideBar}/>
+        <main className={`sidebar-page-container ${sideBarOpen ? "open" : "close"}`}>
+            <Routes>
+              {
+                HomeRoutes.length === 0 ?
+                <Route path='/' element={<div>There's no route here</div>} /> :
+                HomeRoutes.map((route, index) => 
+                  <Route 
+                    key={index} 
+                    path={route.path} 
+                    element={createElement(route.page)} 
+                  />
+                )
+              }
+            </Routes>  
+        </main>
+      </section>
+    </ProtectedRoutes>
+  );
+};
+
+export default HomePage;

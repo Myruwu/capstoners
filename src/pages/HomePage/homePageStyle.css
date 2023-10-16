@@ -1,0 +1,21 @@
+.sidebar-page-container {
+  padding: 10px;
+  overflow: hidden;
+  transition: all ease-in-out 120ms;
+}
+
+.sidebar-page-container.open {
+  margin-left: 170px;
+}
+.sidebar-page-container.close {
+  margin-left: 50px;
+}
+.sidebar-header {
+
+}
+
+@media only screen and (max-width: 700px) {
+  .sidebar-page-container.open {
+    margin-left: 50px;
+  }
+}

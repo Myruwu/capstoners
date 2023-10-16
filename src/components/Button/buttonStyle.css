@@ -1,0 +1,36 @@
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  color: var(--primary-white);
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  background-color: var(--primary-white);
+  color: var(--primary-gray);
+  font-weight: 600;
+  transition: all ease-in 120ms;
+}
+
+button.primary {
+  background-color: var(--primary-darkBlue);
+  color: var(--primary-white);
+}
+
+button:hover{
+  transform: scale(1.05);
+}
+button.full {
+  width: 100%;
+}
+button.danger, button.outline-danger:hover{
+  background-color: var(--primary-danger);
+  color: white;
+}
+
+button.outline-primary{
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
