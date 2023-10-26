@@ -9,7 +9,7 @@ const LoginPage = () => {
   return (
     <section className="login-page">
       <div className="card">
-        <h1 className="login-title">Plantito</h1>
+        <h1 className="login-title">TerraTrend</h1>
         <h2 className="login-subtitle">{cardLoginForm ? "Login to continue" : "Create an Account"}</h2>
         <LoginForm status={cardLoginForm} handleCardLoginForm={() => setCardLoginForm(false)}/>
         <RegisterForm status={cardLoginForm} handleCardLoginForm={() => setCardLoginForm(true)}/>

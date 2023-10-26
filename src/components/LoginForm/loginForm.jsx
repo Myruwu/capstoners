@@ -57,15 +57,6 @@ const LoginForm = ({handleCardLoginForm, status}) => {
             <Button type="submit" variant="primary user-form-btn">
               Sign in
             </Button>
-            <div className="options"> 
-              <div className="line"></div>
-              or
-              <div className="line"></div>
-            </div>
-            <Button onClick={signInWithGoogle} variant="user-form-btn">
-              <FcGoogle/>
-              Sign in with Google
-            </Button>
             <div className="nav-link">
               Don't have an account?
               <Link onClick={handleCardLoginForm}>Click here</Link>
@@ -73,7 +64,7 @@ const LoginForm = ({handleCardLoginForm, status}) => {
           </Form>
       )}
     </Formik>
-     
+
 
     </>
   );

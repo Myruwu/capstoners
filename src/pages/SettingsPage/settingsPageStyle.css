@@ -1,12 +1,58 @@
-.Settings form {
-  padding: 12px;
+.Settings {
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #e0e0e0;
+  border-radius: 28px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.Settings h2 {
+  font-size: 24px;
+  margin: 0 0 16px;
+  color: #333;
+}
+
+.Settings h3 {
+  font-size: 20px;
+  margin: 20px 0 12px;
+  color: #333;
+}
+
+.Settings h4 {
+  font-size: 18px;
+  margin: 0 0 12px;
+  color: #555;
+}
+
+.Settings form {
+  display: flex;
+  flex-wrap: wrap; 
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 350px;
+}
+
 .Settings form input {
   padding: 8px 12px;
-  width: fit-content;
-  background-color: white;
-  margin: 0 8px 8px 0;
+  margin: 0 0 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
 }
-hr {
-  margin-bottom: 12px;
+
+.Settings form button {
+  width: 100%;
+}
+
+.update-settings {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
 }

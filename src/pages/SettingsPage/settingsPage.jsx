@@ -4,13 +4,10 @@ import Button from "../../components/Button/button";
 import { auth, db } from "../../config/firebase";
 import { getDoc, doc, setDoc } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
-import { getAuth, updateEmail, updatePassword,  sendEmailVerification } from 'firebase/auth';
+import { getAuth,  updatePassword } from 'firebase/auth';
 
 const SettingsPage = () => {
   const authUser = getAuth();
-  const [oldEmail, setOldEmail] = useState(''); 
-  const [newEmail, setNewEmail] = useState(''); 
-  const [newEmailPassword, setNewEmailPassword] = useState(''); 
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -43,23 +40,7 @@ const SettingsPage = () => {
       }
     });
   }, [authUser]);
-  const handleUpdateEmail = () => {
-    if (newEmail) {
-      sendEmailVerification(authUser.currentUser)
-      .then(() => {
-        updateEmail(authUser.currentUser, newEmail)
-          .then(() => {
-            alert("You have successfully updated your email address!");
-          })
-          .catch((error) => {
-            alert(error.message);
-          });
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
-    }
-  };
+
 
   const handleUpdatePassword = () => {
     if (newPassword === confirmPassword) {
@@ -76,7 +57,6 @@ const SettingsPage = () => {
   };
   const handleUpdateInfo = () => {
     if (firstName !== userFirstName || lastName !== userLastName) {
-      // Update the user's first name and last name in Firestore
       const userDocRef = doc(db, 'users', authUser.currentUser.uid);
       const userData = {
         firstName: firstName,
@@ -103,9 +83,10 @@ const SettingsPage = () => {
         {userFirstName} {userLastName}
       </h4>
       {authUser.currentUser.email ? authUser.currentUser.email : "Failed to get your email"}
-      <hr/>
-      <h3>Change Personal Information</h3>
+      <div className="update-settings">
       <form>
+      <h3>Change Personal Information</h3>
+
       <input
         type="text"
         placeholder="Change your first name"
@@ -125,37 +106,9 @@ const SettingsPage = () => {
           Change Personal Info
       </Button>
       </form>
-      <hr />
-      <h3>Change Email Address</h3>
+  
       <form>
-      <input
-        type="email"
-        placeholder="Old email address"
-        value={oldEmail}
-        onChange={(e) => setOldEmail(e.target.value)}
-      />
-      <input
-        type="email"
-        placeholder="New email address"
-        value={newEmail}
-        onChange={(e) => setNewEmail(e.target.value)}
-      />
-      <input
-        type="email"
-        placeholder="Password"
-        value={newEmailPassword}
-        onChange={(e) => setNewEmailPassword(e.target.value)}
-      />
-      <Button 
-        type="button" 
-        variant="primary"
-        onClick={handleUpdateEmail}>
-          Change Email
-      </Button>
-      </form>
-      <hr />
-      <h3>Change Password</h3>
-      <form>
+        <h3>Change Password</h3>
         <input
           type="password"
           placeholder="Current password"
@@ -176,11 +129,12 @@ const SettingsPage = () => {
         />
         <Button 
           type="button"
-          variant="primary"
+          variant="primary full"
           onClick={handleUpdatePassword}>
           Change Password
         </Button>
       </form>
+      </div>
       <hr />
     </section>
   );

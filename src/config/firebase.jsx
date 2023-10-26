@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider,  signInWithPopup } from "firebase/auth";
 import { getFirestore } from "firebase/firestore"
+import { getDatabase, } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCL1giuajreNL7MaAlISBR_gr5AsmYW2p0",
@@ -17,6 +18,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 const db = getFirestore(app);
+const realtimeDb = getDatabase(app);
 
 const signInWithGoogle = async () => {
   try {
@@ -39,4 +41,4 @@ const signInWithGoogle = async () => {
 }
 
 
-export { auth, signInWithGoogle, db };
+export { auth, signInWithGoogle, db , realtimeDb};

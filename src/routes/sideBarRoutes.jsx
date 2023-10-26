@@ -1,5 +1,4 @@
 import {
-  IoBarChartOutline,
   IoLeafOutline,
   IoNotificationsOutline,
   IoSettingsOutline,
@@ -10,11 +9,6 @@ export const SideBarRoutes = [
   {
     path:"/home",
     title:"Dashboard",
-    icon: IoBarChartOutline,
-  },
-  {
-    path:"/home/plants",
-    title:"Plants",
     icon: IoLeafOutline,
   },
   {

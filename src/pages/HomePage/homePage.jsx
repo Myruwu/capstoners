@@ -3,8 +3,9 @@ import { createElement, useState } from "react";
 import { Route, Routes } from 'react-router-dom';
 import { HomeRoutes } from "../../routes/homeRoutes";
 import { SideBarRoutes } from "../../routes/sideBarRoutes";
-import SideBar from "../../components/SideBar/sideBar";
+import SideBar from "../../components/SideBar/sideBar"; 
 import ProtectedRoutes from "../../auth/protectedRoutes";
+import NavBar from "../../components/NavBar/navBar";
 
 
 const HomePage = () => {
@@ -15,9 +16,8 @@ const HomePage = () => {
   }
   return (
     <ProtectedRoutes>
-      <section>
-        <SideBar navigation={SideBarRoutes} status={sideBarOpen ? "open" : "close"} handleSideBar={handleSideBar}/>
-        <main className={`sidebar-page-container ${sideBarOpen ? "open" : "close"}`}>
+      <NavBar/>
+      <section className="main-page">
             <Routes>
               {
                 HomeRoutes.length === 0 ?
@@ -31,7 +31,6 @@ const HomePage = () => {
                 )
               }
             </Routes>  
-        </main>
       </section>
     </ProtectedRoutes>
   );

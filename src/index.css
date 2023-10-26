@@ -1,7 +1,7 @@
 :root {
-  --primary-green: #ABD699;
+  --primary-green: #72aa5a;
   --primary-blue: #75C9B7;
-  --primary-darkBlue: #16123F;
+  --primary-darkBlue: #434343;
   --primary-black: #191919;
   --secondary-black: #2f2f2f;
   --primary-gray: #8c8c8c;
@@ -19,7 +19,7 @@
 }
 
 body{
-  background-color: var(--primary-green);
+  background-color: var(--secondary-white);
   color: var(--primary-darkBlue);
 }
 a {
@@ -30,11 +30,13 @@ a {
 
 input {
   background-color: transparent;
-  width: 100%;
   border: none;
   outline: none;
 }
 
 input:focus-visible {
   outline: none;
+}
+.full {
+  width: 100%;
 }

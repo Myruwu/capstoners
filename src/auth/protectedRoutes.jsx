@@ -11,6 +11,8 @@ const ProtectedRoutes = ({ children }) => {
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
         setAuthUser(user);
+        navigate("/home");
+
       } else {
         alert("You need to login first before you access this page!")
         setAuthUser(null);
@@ -20,7 +22,7 @@ const ProtectedRoutes = ({ children }) => {
     return () => {
       listen();
     };
-  });
+  }, [authUser]);
 
   return <>{children}</>;
 };
